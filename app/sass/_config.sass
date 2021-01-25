@@ -1,0 +1,77 @@
+// USER VARIABLES SECTION
+
+$accent: #ebc804// Accent Color  #6589ff
+$second: #1d2933
+$fontsize: 16px // Body Font Size
+$textcolor: #707070 // Text Color
+$lineheight: 1.65 // Document Line Height
+$userfont: Segoe, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$trs: 0.25s ease
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 20px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION Plugin in CSS
+
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+@import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+@import 'node_modules/font-awesome/css/font-awesome'
+
+// === PLAGINS === //    
+
+
+
+
+
+	
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: local($fname), url($furl) format('woff2')
+		// font-display: swap // Uncomment to initially display system fonts
+
+@include font('Segoe', normal, 400, '../fonts/SegoeUI-Regular.woff2')
+@include font('Segoe', normal, 300, '../fonts/SegoeUI-Light.woff2')
+@include font('Segoe', italic, 400, '../fonts/SegoeUI-Italic.woff2')
+@include font('Segoe', normal, 600, '../fonts/SegoeUI-SemiBold.woff2')
+@include font('Segoe', normal, 700, '../fonts/SegoeUI-Bold.woff2')
+
+// === include icon fonts === // 
+@include font('FontAwesome', normal, 700, '../fonts/fontawesome-webfont.woff2')
+
+
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: #e72929
+	&:required:valid
+		border-color: #53d32d
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
